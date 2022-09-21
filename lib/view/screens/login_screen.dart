@@ -23,7 +23,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
-   
+    ScreenSize.initScreenSize(context);
+
     return Scaffold(
       body: BlocProvider(
                 create: (context) => AuthenticationCubit(),
@@ -83,14 +84,19 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                 height: ScreenSize.height * .01,
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                        color: defaultColor,
-                        decoration: TextDecoration.underline),
-                  )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Forgot Password?',
+                        style: TextStyle(
+                            color: defaultColor,
+                            decoration: TextDecoration.underline),
+                      )),
+                  ],
+                ),
                 SizedBox(
                 height: ScreenSize.height * .06,
                 ),

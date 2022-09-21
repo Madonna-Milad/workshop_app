@@ -16,7 +16,8 @@ var dateController=TextEditingController();
 var noteController=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    
+   ScreenSize.initScreenSize(context);
+
     return Scaffold(
 appBar: AppBar(leading:IconButton(onPressed: (){
   navigateTo(context,NotesScreen());

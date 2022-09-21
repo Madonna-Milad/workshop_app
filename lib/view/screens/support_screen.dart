@@ -16,7 +16,8 @@ var nameController = TextEditingController();
    var supportController=TextEditingController();
   @override
   Widget build(BuildContext context) {
-    
+        ScreenSize.initScreenSize(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,

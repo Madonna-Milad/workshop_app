@@ -23,6 +23,8 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        ScreenSize.initScreenSize(context);
+
     
     List<VoidCallback> destinations = [
       () {},

@@ -24,7 +24,8 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
+       ScreenSize.initScreenSize(context);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(25.0),

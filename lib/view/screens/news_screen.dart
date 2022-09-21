@@ -13,7 +13,8 @@ class NewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+    ScreenSize.initScreenSize(context);
+
     return Scaffold(
       appBar: AppBar(
       automaticallyImplyLeading: false,

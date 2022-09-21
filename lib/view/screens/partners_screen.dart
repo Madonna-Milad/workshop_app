@@ -13,6 +13,7 @@ class PartnersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
+    ScreenSize.initScreenSize(context);
 
     return Scaffold(
       appBar: AppBar(

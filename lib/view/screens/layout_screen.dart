@@ -17,6 +17,7 @@ layoutScreen(this.index);
 
   @override
   Widget build(BuildContext context) {
+
     return BlocProvider(
       create: (context) => LayoutCubit()..changeBottomNavBarIndex(index),
       child: BlocConsumer<LayoutCubit,LayoutStates>(

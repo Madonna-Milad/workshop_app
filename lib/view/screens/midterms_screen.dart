@@ -49,19 +49,7 @@ class MidtermsScreen extends StatelessWidget {
         
             buildCardItem('Exam Day','Vue','Thursday','2:00pm','4:00pm'),
         
-        AlertDialog(title: Text('Logout'),
-        content: Text('Are you sure ?'),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:[
- defaultButton(onButtonPressed: (){},buttonName: 'Cancel',toggle: true,height:ScreenSize.height,width: ScreenSize.width/5.5 ),
- SizedBox(width: ScreenSize.width*.06,),
-          defaultButton(onButtonPressed: (){},buttonName: 'Sure',height:ScreenSize. height,width:ScreenSize.width/5.5),
-          ],),
-         
-        ],
-        )
+       
           ],),
         ),
       ),
