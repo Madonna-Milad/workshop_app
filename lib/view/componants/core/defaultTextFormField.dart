@@ -20,6 +20,7 @@ Widget defaultTextFormField({
     obscureText: isVisible? true : false,
     controller: controller,
     decoration: InputDecoration(
+      alignLabelWithHint: true,
       fillColor: fieldColor,
       label: Text(
         label,

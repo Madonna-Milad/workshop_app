@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
+import 'package:workshop_app/model/university_model.dart';
 
 import '../../../view_model/authentication/signup_cubit.dart';
 
 Widget dropDownColumn(double height, double width, String title,
-    List<String> items, SignUpCubit cubit) {
+    List<String>? items, SignUpCubit cubit) {
   return Column(
     children: [
       Text(
@@ -20,10 +21,11 @@ Widget dropDownColumn(double height, double width, String title,
           borderRadius: BorderRadius.circular(10),
         ),
         child: DropdownButton(
+          
           underline: Text(''),
-          value: cubit.dropDownValue,
+          value: items!.first,
           alignment: AlignmentDirectional.center,
-          items: items.map<DropdownMenuItem<String>>((String value) {
+          items: items.map<DropdownMenuItem<String>>((value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Text(value),

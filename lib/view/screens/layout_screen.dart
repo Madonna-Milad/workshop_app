@@ -29,7 +29,8 @@ layoutScreen(this.index);
         
           bottomNavigationBar: BottomNavyBar(
             selectedIndex:cubit.currentIndex,
-           
+           iconSize: 24
+           ,
             items: [
             BottomNavyBarItem(icon: Icon(Icons.home_sharp),title:Text('Home'),activeColor: defaultColor,inactiveColor: Colors.black), 
 

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:workshop_app/model/size_model.dart';
 import 'package:workshop_app/view/componants/core/ScreenTitle.dart';
 import 'package:workshop_app/view/screens/login_screen.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
@@ -28,7 +29,7 @@ class _SplachScreenState extends State<SplachScreen> {
  
   @override
   Widget build(BuildContext context) {
-    
+    ScreenSize.initScreenSize(context);
     return Scaffold(
       body: Center(
         child: Container(
@@ -38,12 +39,12 @@ class _SplachScreenState extends State<SplachScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
              buildScreenTitle(),
-              SizedBox(height: 50,),
+              SizedBox(height: ScreenSize.height*.08,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     LinearPercentIndicator(
-                    width:400,
+                    width:ScreenSize.width*.8,
                     animation: true,
                     lineHeight: 20.0,
                     animationDuration: 2500,

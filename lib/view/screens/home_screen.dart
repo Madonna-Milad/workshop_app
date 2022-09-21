@@ -32,35 +32,37 @@ List <VoidCallback> destinations=[
 ];
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            buildScreenTitle(),
-            SizedBox(
-              height:ScreenSize.height * .08,
-            ),
-            Container(
-              height:ScreenSize.height*.6,
-              width: double.infinity,
-              child: GridView.count(
-                childAspectRatio: 1/.6,
-                crossAxisCount: 2,
-                crossAxisSpacing: ScreenSize.width * .04,
-                mainAxisSpacing: ScreenSize.height * .01,
-                children: [
-                  BuildGridViewItem(columnIcon: Icons.menu_book, text: 'Lectures',width: ScreenSize.width,height:ScreenSize. height, onPressed:destinations[0],),
-                  BuildGridViewItem(columnIcon: Icons.people_alt_rounded, text: 'Sections',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[1]),
-                  BuildGridViewItem(columnIcon: Icons.contact_page_outlined, text: 'Midtrems',width:ScreenSize. width,height: ScreenSize.height,onPressed:destinations[2]),
-                  BuildGridViewItem(columnIcon: Icons.quiz_outlined, text: 'Finals',width: ScreenSize.width,height:ScreenSize. height,onPressed:destinations[3]),
-                  BuildGridViewItem(columnIcon: Icons.calendar_month,text: 'Events',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[4]),
-                  BuildGridViewItem(columnIcon: Icons.note_alt_sharp, text: 'Notes',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[5]),
-        
-                  
-                ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              buildScreenTitle(),
+              SizedBox(
+                height:ScreenSize.height * .06,
               ),
-            )
-          ],
+              Container(
+                height:ScreenSize.height*.6,
+                width: double.infinity,
+                child: GridView.count(
+                  childAspectRatio: 1/.8,
+                  crossAxisCount: 2,
+                  crossAxisSpacing: ScreenSize.width * .02,
+                  mainAxisSpacing: ScreenSize.height * .008,
+                  children: [
+                    BuildGridViewItem(columnIcon: Icons.menu_book, text: 'Lectures',width: ScreenSize.width,height:ScreenSize. height, onPressed:destinations[0],),
+                    BuildGridViewItem(columnIcon: Icons.people_alt_rounded, text: 'Sections',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[1]),
+                    BuildGridViewItem(columnIcon: Icons.contact_page_outlined, text: 'Midtrems',width:ScreenSize. width,height: ScreenSize.height,onPressed:destinations[2]),
+                    BuildGridViewItem(columnIcon: Icons.quiz_outlined, text: 'Finals',width: ScreenSize.width,height:ScreenSize. height,onPressed:destinations[3]),
+                    BuildGridViewItem(columnIcon: Icons.calendar_month,text: 'Events',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[4]),
+                    BuildGridViewItem(columnIcon: Icons.note_alt_sharp, text: 'Notes',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[5]),
+          
+                    
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

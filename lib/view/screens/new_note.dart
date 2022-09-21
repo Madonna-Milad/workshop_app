@@ -27,31 +27,33 @@ title: Text('Add Note'),
 ),
 body: Padding(
   padding:  EdgeInsets.all(ScreenSize.width*.03),
-   child:   Column(children: [
-  
-    defaultTextFormField(controller: titleController, label: 'Title',isNote: true),
-  
-     SizedBox(height:ScreenSize.height*.04,),
-  
-     defaultTextFormField(controller: dateController, label: 'Date',isNote: true),
-  
+   child:   SingleChildScrollView(
+     child: Column(children: [
+     
+      defaultTextFormField(controller: titleController, label: 'Title',isNote: true),
+     
        SizedBox(height:ScreenSize.height*.04,),
-  
-  defaultTextFormField(controller: noteController, label: 'Note',isNote: true,maxNumberOfLines: 5),
-  
-
-  
+     
+       defaultTextFormField(controller: dateController, label: 'Date',isNote: true),
+     
          SizedBox(height:ScreenSize.height*.04,),
-
-  defaultButton(onButtonPressed: (){},
-  buttonName: '+ Add ',
-  height: ScreenSize.height,
-  width: ScreenSize.width/4,
-
-  )
-  
-  
-   ],),
+     
+     defaultTextFormField(controller: noteController, label: 'Note',isNote: true,maxNumberOfLines: 5),
+     
+   
+     
+           SizedBox(height:ScreenSize.height*.04,),
+   
+     defaultButton(onButtonPressed: (){},
+     buttonName: '+ Add ',
+     height: ScreenSize.height,
+     width: ScreenSize.width/3,
+   
+     )
+     
+     
+     ],),
+   ),
  ),
     );
     

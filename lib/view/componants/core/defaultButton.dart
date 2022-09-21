@@ -12,6 +12,7 @@ Widget defaultButton({
   return  Center(
               child: Container(
                 width: width * .8,
+                height: height*.07,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(5),
                      border: Border.all(

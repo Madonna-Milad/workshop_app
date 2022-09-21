@@ -3,9 +3,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:workshop_app/view/componants/core/defaultButton.dart';
 import 'package:workshop_app/view/componants/core/navigation.dart';
+import 'package:workshop_app/view/screens/FAQ_screen.dart';
 import 'package:workshop_app/view/screens/login_screen.dart';
 import 'package:workshop_app/view/screens/partners_screen.dart';
 import 'package:workshop_app/view/screens/support_screen.dart';
+import 'package:workshop_app/view/screens/terms&conditions_screen.dart';
 
 import '../../model/size_model.dart';
 import '../componants/settings/list_tile.dart';
@@ -27,8 +29,10 @@ class SettingsScreen extends StatelessWidget {
 
     
     List<VoidCallback> destinations = [
-      () {},
-      () {},
+      () {navigateTo(context,FAQ());},
+      () {
+        navigateTo(context, TermsAndConditions());
+      },
       () {
         navigateTo(context, PartnersScreen());
       },
@@ -51,7 +55,7 @@ class SettingsScreen extends StatelessWidget {
                           buttonName: 'Cancel',
                           toggle: true,
                           height: ScreenSize.height/1.3,
-                          width: ScreenSize.width / 4),
+                          width: ScreenSize.width / 3),
                       SizedBox(
                         width: ScreenSize.width * .06,
                       ),
@@ -61,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
                           },
                           buttonName: 'Sure',
                           height:ScreenSize. height/1.3,
-                          width: ScreenSize.width / 4),
+                          width: ScreenSize.width / 3),
                     ],
                   ),
                 ],
