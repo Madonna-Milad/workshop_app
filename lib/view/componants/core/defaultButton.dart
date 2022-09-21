@@ -14,10 +14,10 @@ Widget defaultButton({
                 width: width * .8,
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(5),
-                     border:toggle? Border.all(
+                     border: Border.all(
                       color: defaultColor,
                       width: 2,
-                    ):null
+                    ),
                     ),
                 child: MaterialButton(
                   height: height * .06,

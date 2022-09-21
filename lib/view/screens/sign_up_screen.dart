@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -8,6 +7,7 @@ import 'package:workshop_app/view/screens/login_screen.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 import 'package:workshop_app/view_model/authentication/signup_cubit.dart';
 import 'package:workshop_app/view_model/authentication/signup_states.dart';
+import '../../model/size_model.dart';
 import '../componants/authentication/or_row.dart';
 import '../componants/core/defaultButton.dart';
 import '../componants/core/defaultTextFormField.dart';
@@ -24,8 +24,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+   
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(25.0),
@@ -35,14 +34,14 @@ class SignUpScreen extends StatelessWidget {
             children: [
               buildScreenTitle(),
               SizedBox(
-                height: height * .1,
+                height: ScreenSize.height * .1,
               ),
               Text(
                 'Sign Up',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               SizedBox(
-                height: height * .02,
+                height: ScreenSize.height * .02,
               ),
               BlocProvider(
                 create: (context) => SignUpCubit(),
@@ -55,12 +54,12 @@ class SignUpScreen extends StatelessWidget {
                         defaultTextFormField(
                             controller: nameController, label: 'Name'),
                         SizedBox(
-                          height: height * .02,
+                          height: ScreenSize.height * .02,
                         ),
                         defaultTextFormField(
                             controller: emailController, label: 'E-Mail'),
                         SizedBox(
-                          height: height * .02,
+                          height: ScreenSize.height * .02,
                         ),
                         defaultTextFormField(
                             controller: passwordController,
@@ -71,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                               cubit.toggleEyeIcon(isFirst: true);
                             }),
                         SizedBox(
-                          height: height * .02,
+                          height: ScreenSize.height * .02,
                         ),
                         defaultTextFormField(
                             controller: confirmationPasswordController,
@@ -82,28 +81,28 @@ class SignUpScreen extends StatelessWidget {
                               cubit.toggleEyeIcon(isFirst: false);
                             }),
                         SizedBox(
-                          height: height * .02,
+                          height: ScreenSize.height * .02,
                         ),
                         defaultTextFormField(
                             controller: phoneController, label: 'Phone Number'),
                         SizedBox(
-                          height: height * .02,
+                          height:ScreenSize. height * .02,
                         ),
                        
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            dropDownColumn(height, width, 'Gender',
+                            dropDownColumn(ScreenSize.height,ScreenSize.width, 'Gender',
                                 cubit.genderList, cubit),
-                            dropDownColumn(height, width, 'University',
+                            dropDownColumn(ScreenSize.height, ScreenSize.width, 'University',
                                 cubit.universityList, cubit),
                           ],
                         ),
                         Center(
-                            child: dropDownColumn(height, width, 'Grade',
+                            child: dropDownColumn(ScreenSize.height, ScreenSize.width, 'Grade',
                                 cubit.gradeList, cubit)),
                         SizedBox(
-                          height: height * .02,
+                          height: ScreenSize.height * .02,
                         ),
                       ],
                     );
@@ -111,20 +110,20 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               defaultButton(
-                  height: height,
-                  width: width,
+                  height: ScreenSize.height,
+                  width:ScreenSize. width,
                   buttonName: 'Sign Up',
                   onButtonPressed: () {}),
               SizedBox(
-                height: height * .02,
+                height: ScreenSize.height * .02,
               ),
-              buildSeparatedRow(height: height, width: width),
+              buildSeparatedRow(height: ScreenSize.height, width: ScreenSize.width),
               SizedBox(
-                height: height * .02,
+                height: ScreenSize.height * .02,
               ),
               defaultButton(
-                  height: height,
-                  width: width,
+                  height:ScreenSize. height,
+                  width: ScreenSize.width,
                   buttonName: 'Login',
                   toggle: true,
                   onButtonPressed: () {

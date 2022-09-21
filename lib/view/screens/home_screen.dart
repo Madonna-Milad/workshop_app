@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
+import 'package:workshop_app/model/size_model.dart';
 import 'package:workshop_app/view/componants/core/ScreenTitle.dart';
 import 'package:workshop_app/view/componants/core/navigation.dart';
 import 'package:workshop_app/view/screens/events_screen.dart';
@@ -18,8 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+   
 
 List <VoidCallback> destinations=[
   (){navigateTo(context,LecturesScreen());},
@@ -37,23 +37,23 @@ List <VoidCallback> destinations=[
           children: [
             buildScreenTitle(),
             SizedBox(
-              height: height * .08,
+              height:ScreenSize.height * .08,
             ),
             Container(
-              height:height*.6,
+              height:ScreenSize.height*.6,
               width: double.infinity,
               child: GridView.count(
                 childAspectRatio: 1/.6,
                 crossAxisCount: 2,
-                crossAxisSpacing: width * .04,
-                mainAxisSpacing: height * .01,
+                crossAxisSpacing: ScreenSize.width * .04,
+                mainAxisSpacing: ScreenSize.height * .01,
                 children: [
-                  BuildGridViewItem(columnIcon: Icons.menu_book, text: 'Lectures',width: width,height: height, onPressed:destinations[0],),
-                  BuildGridViewItem(columnIcon: Icons.people_alt_rounded, text: 'Sections',width: width,height: height,onPressed:destinations[1]),
-                  BuildGridViewItem(columnIcon: Icons.contact_page_outlined, text: 'Midtrems',width: width,height: height,onPressed:destinations[2]),
-                  BuildGridViewItem(columnIcon: Icons.quiz_outlined, text: 'Finals',width: width,height: height,onPressed:destinations[3]),
-                  BuildGridViewItem(columnIcon: Icons.calendar_month,text: 'Events',width: width,height: height,onPressed:destinations[4]),
-                  BuildGridViewItem(columnIcon: Icons.note_alt_sharp, text: 'Notes',width: width,height: height,onPressed:destinations[5]),
+                  BuildGridViewItem(columnIcon: Icons.menu_book, text: 'Lectures',width: ScreenSize.width,height:ScreenSize. height, onPressed:destinations[0],),
+                  BuildGridViewItem(columnIcon: Icons.people_alt_rounded, text: 'Sections',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[1]),
+                  BuildGridViewItem(columnIcon: Icons.contact_page_outlined, text: 'Midtrems',width:ScreenSize. width,height: ScreenSize.height,onPressed:destinations[2]),
+                  BuildGridViewItem(columnIcon: Icons.quiz_outlined, text: 'Finals',width: ScreenSize.width,height:ScreenSize. height,onPressed:destinations[3]),
+                  BuildGridViewItem(columnIcon: Icons.calendar_month,text: 'Events',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[4]),
+                  BuildGridViewItem(columnIcon: Icons.note_alt_sharp, text: 'Notes',width: ScreenSize.width,height: ScreenSize.height,onPressed:destinations[5]),
         
                   
                 ],

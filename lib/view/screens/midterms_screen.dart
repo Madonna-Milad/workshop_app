@@ -1,9 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:workshop_app/view/componants/core/defaultButton.dart';
 import 'package:workshop_app/view/screens/home_screen.dart';
 import 'package:workshop_app/view/screens/layout_screen.dart';
 
+import '../../model/size_model.dart';
 import '../componants/core/navigation.dart';
 import '../componants/sections/card_component.dart';
 
@@ -12,6 +14,7 @@ class MidtermsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     
     return Scaffold(
        appBar: AppBar(
         leading: IconButton(onPressed: (){
@@ -46,6 +49,19 @@ class MidtermsScreen extends StatelessWidget {
         
             buildCardItem('Exam Day','Vue','Thursday','2:00pm','4:00pm'),
         
+        AlertDialog(title: Text('Logout'),
+        content: Text('Are you sure ?'),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:[
+ defaultButton(onButtonPressed: (){},buttonName: 'Cancel',toggle: true,height:ScreenSize.height,width: ScreenSize.width/5.5 ),
+ SizedBox(width: ScreenSize.width*.06,),
+          defaultButton(onButtonPressed: (){},buttonName: 'Sure',height:ScreenSize. height,width:ScreenSize.width/5.5),
+          ],),
+         
+        ],
+        )
           ],),
         ),
       ),

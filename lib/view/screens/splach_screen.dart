@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:workshop_app/view/componants/core/ScreenTitle.dart';
 import 'package:workshop_app/view/screens/login_screen.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 
@@ -36,25 +37,7 @@ class _SplachScreenState extends State<SplachScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Orange',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: defaultColor),
-                  ),
-                  Text(
-                    ' Digital Center',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ],
-              ),
+             buildScreenTitle(),
               SizedBox(height: 50,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +48,7 @@ class _SplachScreenState extends State<SplachScreen> {
                     lineHeight: 20.0,
                     animationDuration: 2500,
                     percent: 1,
-              //  center: Text("80.0%"),
+              
                linearStrokeCap: LinearStrokeCap.roundAll,
                     progressColor:defaultColor,
                     barRadius: Radius.circular(10),

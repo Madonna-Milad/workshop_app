@@ -40,18 +40,7 @@ layoutScreen(this.index);
                  cubit.changeBottomNavBarIndex(index);
              },
              )
-          // BottomNavigationBar(
-          //  // landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
-          //   unselectedItemColor: Colors.black,
-          //   currentIndex:cubit.currentIndex ,
-          //   onTap: (index){
-          //       cubit.changeBottomNavBarIndex(index);
-          //   },
-          //   items: [
-          //   BottomNavigationBarItem(icon: Icon(Icons.home_sharp),label: 'Home'),
-          //   BottomNavigationBarItem(icon: Icon(Icons.newspaper_rounded),label: 'News'),
-          //   BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Settings'),
-          // ]),
+         
         );
         },
         

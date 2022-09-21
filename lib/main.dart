@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:workshop_app/view/screens/counter.dart';
-import 'package:workshop_app/view/screens/home_screen.dart';
-import 'package:workshop_app/view/screens/layout_screen.dart';
-import 'package:workshop_app/view/screens/midterms_screen.dart';
-import 'package:workshop_app/view/screens/news_screen.dart';
-import 'package:workshop_app/view/screens/partners_screen.dart';
-import 'package:workshop_app/view/screens/sized_container.dart';
 import 'package:workshop_app/view/screens/splach_screen.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
+import 'package:workshop_app/view_model/database/network/dio_helper.dart';
 
-import 'view/screens/sections_screen.dart';
-import 'view/screens/settings_screen.dart';
-import 'view/screens/login_screen.dart';
-import 'view/screens/support_screen.dart';
 
-void main() {
+
+void main() async{
+await DioHelper.init();
   runApp( MyApp());
 }
 
