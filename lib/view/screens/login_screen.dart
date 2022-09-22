@@ -20,7 +20,7 @@ import '../componants/core/defaultTextFormField.dart';
 import '../componants/core/navigation.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+   LoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,11 +88,13 @@ class LoginScreen extends StatelessWidget {
                           ),
                           Column(children: [
                             defaultTextFormField(
+                              
                                 controller: cubit.emailController, label: 'E-Mail'),
                             SizedBox(
                               height: ScreenSize.height * .04,
                             ),
                             defaultTextFormField(
+                              
                                 controller: cubit.passwordController,
                                 label: 'Password',
                                 avaliableSuffix: true,

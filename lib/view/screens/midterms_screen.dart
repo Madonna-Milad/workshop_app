@@ -42,18 +42,19 @@ class MidtermsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: cubit.examModel != null
                     ? ListView.separated(
-                        itemBuilder: (context, index) =>cubit.examModel!.data![index].isFinal??false?Placeholder(color: Colors.transparent,fallbackHeight: 0,):
+                        itemBuilder: (context, index) =>
                          buildCardItem(
                             'Exam Day',
-                            cubit.examModel!.data![index].examSubject.toString(),
-                             cubit.examModel!.data![index].examDate.toString(),
-                            cubit.examModel!.data![index].examStartTime.toString(),
-                            cubit.examModel!.data![index].examEndTime.toString(),
+                            cubit.midterms[index].examSubject.toString(),
+                            cubit.midterms[index].examDate.toString(),
+                            cubit.midterms[index].examStartTime.toString(),
+                            cubit.midterms[index].examEndTime.toString(),
+                           
                             ),
                         separatorBuilder: (context, index) => SizedBox(
                               height: ScreenSize.height * .02,
                             ),
-                        itemCount: cubit.examModel!.data!.length)
+                        itemCount: cubit.midterms.length)
                     : Container(
                         height: ScreenSize.height,
                         child: Center(

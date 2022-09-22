@@ -12,8 +12,11 @@ class ExamsCubit extends Cubit<ExamsStates>{
   ExamsCubit():super(InitialState());
 
   static ExamsCubit get(context)=>BlocProvider.of(context);
-
 ExamsModel? examModel;
+
+List<Data>midterms=[];
+List<Data>finals=[];
+
 
 void getExams()async{
   emit((ExamsloadingState()));
@@ -23,6 +26,14 @@ void getExams()async{
   ).then((value){
 //print(value.data);
 examModel=ExamsModel.fromJson(value.data);
+examModel!.data!.forEach((exam){
+if(exam.isFinal==false){
+  midterms.add(exam);
+}else{
+  finals.add(exam);
+}
+});
+
 emit((ExamsSuccessfulState()));
   }).catchError((error){
     print(error.toString());

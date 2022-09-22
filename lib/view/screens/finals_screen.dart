@@ -36,16 +36,17 @@ class FinalsScreen extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(20.0),
               child:cubit.examModel !=null? ListView.separated(
-                  itemBuilder: (context, index) =>cubit.examModel!.data![index].isFinal??false? buildCardItem(
+                  itemBuilder: (context, index) => buildCardItem(
                      'Exam Day',
-                            cubit.examModel!.data![index].examSubject.toString(),
-                             cubit.examModel!.data![index].examDate.toString(),
-                            cubit.examModel!.data![index].examStartTime.toString(),
-                            cubit.examModel!.data![index].examEndTime.toString(),):SizedBox(),
+                           cubit.finals[index].examSubject.toString(),
+                            cubit.finals[index].examDate.toString(),
+                            cubit.finals[index].examStartTime.toString(),
+                            cubit.finals[index].examEndTime.toString(),),
+                           
                   separatorBuilder: (context, index) => SizedBox(
                         height: ScreenSize.height * .02,
                       ),
-                  itemCount: cubit.examModel!.data!.length
+                  itemCount: cubit.finals.length
                   ):Center(child:CircularProgressIndicator() ),
 
              

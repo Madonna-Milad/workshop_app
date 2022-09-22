@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 import 'package:workshop_app/model/size_model.dart';
 import 'package:workshop_app/view/componants/core/navigation.dart';
@@ -30,7 +31,7 @@ class FAQ extends StatelessWidget {
         centerTitle: true,
       ),
       body: BlocProvider(
-        create: (context) => FAQCubit(),
+        create: (context) => FAQCubit()..getQuestionAndAnswer(),
         child: BlocConsumer<FAQCubit, FAQStates>(
           listener: (context, state) {},
           builder: (context, state) {
@@ -47,10 +48,11 @@ class FAQ extends StatelessWidget {
                       color: defaultColor,
                     ),
                     child: ListTile(
-                      title: Text(
-                        'Q1: How many countries Orange Digital center is in ?',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                      title: Html(data: cubit.question),
+                      // title: Text(
+                      //   'Q1: How many countries Orange Digital center is in ?',
+                      //   style: TextStyle(color: Colors.white),
+                      // ),
                       trailing: IconButton(
                         icon: cubit.isShown
                             ? Icon(Icons.keyboard_arrow_up,size: 25,)
@@ -77,10 +79,9 @@ class FAQ extends StatelessWidget {
                     child: Align(
                       
                         alignment: Alignment.bottomCenter,
-                        child: Text(
-                          '16 Countries',
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                        )),
+                        child: Html(data: cubit.answer,
+                       style:{ 'color':Style()},
+                        ),),
                   )
                 ],
               ),

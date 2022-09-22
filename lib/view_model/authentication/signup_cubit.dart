@@ -55,10 +55,10 @@ class SignUpCubit extends Cubit<SignUpStates> {
     emit(SignuploadingState());
 
     DioHelper.postData(url: registerEndPoint, data: {
-      'name': nameController.text,
-      'email': emailController.text,
-      'password': passwordController.text,
-      'phoneNumber': phoneController.text,
+      'name': nameController.text.toString(),
+      'email': emailController.text.toString(),
+      'password': passwordController.text.toString(),
+      'phoneNumber': phoneController.text.toString(),
       'gender': 'f',
       'universityId': 1,
       'gradeId': 4,

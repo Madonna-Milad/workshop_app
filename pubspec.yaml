@@ -42,6 +42,9 @@ dependencies:
   bottom_navy_bar: ^6.0.0
   dio: ^4.0.6
   top_snackbar_flutter: ^2.1.1
+  flutter_html: ^2.2.1
+  sqflite: ^2.0.3+1
+  simple_html_css: ^3.0.1+1
  # fluttertoast: ^8.0.9
  
   #google_fonts: ^3.0.1
