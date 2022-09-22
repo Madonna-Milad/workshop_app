@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_html/flutter_html.dart';
+//import 'package:flutter_html/flutter_html.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 import 'package:workshop_app/model/size_model.dart';
 import 'package:workshop_app/view/componants/core/navigation.dart';
@@ -48,7 +48,7 @@ class FAQ extends StatelessWidget {
                       color: defaultColor,
                     ),
                     child: ListTile(
-                      title: Html(data: cubit.question),
+                    //  title: Html(data: cubit.question),
                       // title: Text(
                       //   'Q1: How many countries Orange Digital center is in ?',
                       //   style: TextStyle(color: Colors.white),
@@ -76,12 +76,12 @@ class FAQ extends StatelessWidget {
                             ? BorderRadius.circular(0): BorderRadius.vertical(bottom: Radius.circular(20))
                             ),
                          
-                    child: Align(
+                    // child: Align(
                       
-                        alignment: Alignment.bottomCenter,
-                        child: Html(data: cubit.answer,
-                       style:{ 'color':Style()},
-                        ),),
+                        // alignment: Alignment.bottomCenter,
+                      //   child: Html(data: cubit.answer,
+                      //  style:{ 'color':Style()},
+                      //   ),),
                   )
                 ],
               ),

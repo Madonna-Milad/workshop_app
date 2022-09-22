@@ -11,7 +11,7 @@ class SplachScreenCubit extends Cubit<SplachScreenStates>{
   static SplachScreenCubit get(context)=>BlocProvider.of(context);
 
   void startTimer(BuildContext context,Widget screen){
-     Timer(Duration(seconds: 3), () {
+     Timer(Duration(seconds: 4), () {
           Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => screen));
         });
   }

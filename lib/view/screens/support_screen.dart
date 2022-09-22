@@ -32,11 +32,11 @@ var nameController = TextEditingController();
         padding: const EdgeInsets.all(30.0),
         child: SingleChildScrollView(
           child: Column(children: [
-            defaultTextFormField(controller: nameController, label: 'Name', fieldColor:Colors.grey,avaliablePrefix: true,prefixFieldIcon: Icons.person),
+            defaultTextFormField(controller: nameController, label: 'Name', fieldColor:Colors.grey,avaliablePrefix: true,prefixFieldIcon: Icons.person,validator: (Value){}),
               SizedBox(height: ScreenSize.height*.03,),
-              defaultTextFormField(controller: emailController, label: 'E-Mail', fieldColor:Colors.grey,avaliablePrefix: true,prefixFieldIcon: Icons.email),
+              defaultTextFormField(controller: emailController, label: 'E-Mail', fieldColor:Colors.grey,avaliablePrefix: true,prefixFieldIcon: Icons.email,validator: (Value){}),
               SizedBox(height:ScreenSize.height*.03),
-              defaultTextFormField(controller: supportController, label: 'What\'s making you unhappy?', fieldColor:Colors.grey,maxNumberOfLines: 5),
+              defaultTextFormField(controller: supportController, label: 'What\'s making you unhappy?', fieldColor:Colors.grey,maxNumberOfLines: 5,validator: (Value){}),
               SizedBox(height: ScreenSize.height*.04,),
               defaultButton(onButtonPressed: (){},
               buttonName: 'Submit',

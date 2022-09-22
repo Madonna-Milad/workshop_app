@@ -5,7 +5,7 @@ import '../../../core/resourses/colors.dart';
 Widget defaultTextFormField({
   required TextEditingController controller,
   required String label,
-  Function validation=emptyFunction,
+  required FormFieldValidator validator,
   bool isVisible=false,
   Function onIconPressed=emptyFunction,
   Color fieldColor = Colors.white,
@@ -16,9 +16,7 @@ Widget defaultTextFormField({
   bool isNote = false,
 }) {
   return TextFormField(
-    validator:(s){
-    validation();
-    } ,
+    validator:validator,
     textAlignVertical: TextAlignVertical.top,
     maxLines: maxNumberOfLines,
     obscureText: isVisible? true : false,

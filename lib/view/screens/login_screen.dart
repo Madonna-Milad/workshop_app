@@ -21,6 +21,7 @@ import '../componants/core/navigation.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({Key? key}) : super(key: key);
+   var formKey=GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -86,65 +87,79 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: ScreenSize.height * .04,
                           ),
-                          Column(children: [
-                            defaultTextFormField(
-                              
-                                controller: cubit.emailController, label: 'E-Mail'),
-                            SizedBox(
-                              height: ScreenSize.height * .04,
-                            ),
-                            defaultTextFormField(
-                              
-                                controller: cubit.passwordController,
-                                label: 'Password',
-                                avaliableSuffix: true,
-                                isVisible: cubit.isVisible ? true : false,
-                                onIconPressed: () {
-                                  cubit.toggleEyeIcon();
-                                }),
-                            SizedBox(
-                              height: ScreenSize.height * .01,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      'Forgot Password?',
-                                      style: TextStyle(
-                                          color: defaultColor,
-                                          decoration: TextDecoration.underline),
-                                    )),
-                              ],
-                            ),
-                            SizedBox(
-                              height: ScreenSize.height * .06,
-                            ),
-                            defaultButton(
-                                height: ScreenSize.height,
-                                width: ScreenSize.width,
-                                buttonName: 'Login',
-                                onButtonPressed: () {
-                                  cubit.login();
-                                }),
-                            SizedBox(
-                              height: ScreenSize.height * .02,
-                            ),
-                            buildSeparatedRow(
-                                height: ScreenSize.height, width: ScreenSize.width),
-                            SizedBox(
-                              height: ScreenSize.height * .02,
-                            ),
-                            defaultButton(
-                                height: ScreenSize.height,
-                                width: ScreenSize.width,
-                                buttonName: 'Sign up',
-                                toggle: true,
-                                onButtonPressed: () {
-                                  navigateTo(context, SignUpScreen());
-                                }),
-                          ])
+                          Form(
+                            key:formKey,
+                            child: Column(children: [
+                              defaultTextFormField(
+                                validator: ((value) {
+                                  if(value.isEmpty){
+                                    return 'Please Enter Your E-mail';
+                                  }
+                                   }),
+                                  controller: cubit.emailController, label: 'E-Mail'),
+                              SizedBox(
+                                height: ScreenSize.height * .04,
+                              ),
+                              defaultTextFormField(
+                                 validator: ((value) {
+                                  if(value.isEmpty){
+                                    return 'Please Enter Your Password';
+                                  }
+                                   }),
+                                  controller: cubit.passwordController,
+                                  label: 'Password',
+                                  avaliableSuffix: true,
+                                  isVisible: cubit.isVisible ? true : false,
+                                  onIconPressed: () {
+                                    cubit.toggleEyeIcon();
+                                  }),
+                              SizedBox(
+                                height: ScreenSize.height * .01,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  TextButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        'Forgot Password?',
+                                        style: TextStyle(
+                                            color: defaultColor,
+                                            decoration: TextDecoration.underline),
+                                      )),
+                                ],
+                              ),
+                              SizedBox(
+                                height: ScreenSize.height * .06,
+                              ),
+                              defaultButton(
+                                  height: ScreenSize.height,
+                                  width: ScreenSize.width,
+                                  buttonName: 'Login',
+                                  onButtonPressed: () {
+                                    if(formKey.currentState!.validate()){
+ cubit.login();
+                                    }
+                                   
+                                  }),
+                              SizedBox(
+                                height: ScreenSize.height * .02,
+                              ),
+                              buildSeparatedRow(
+                                  height: ScreenSize.height, width: ScreenSize.width),
+                              SizedBox(
+                                height: ScreenSize.height * .02,
+                              ),
+                              defaultButton(
+                                  height: ScreenSize.height,
+                                  width: ScreenSize.width,
+                                  buttonName: 'Sign up',
+                                  toggle: true,
+                                  onButtonPressed: () {
+                                    navigateTo(context, SignUpScreen());
+                                  }),
+                            ]),
+                          )
                         ]),
                   )),
             );

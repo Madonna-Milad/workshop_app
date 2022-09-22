@@ -30,15 +30,15 @@ body: Padding(
    child:   SingleChildScrollView(
      child: Column(children: [
      
-      defaultTextFormField(controller: titleController, label: 'Title',isNote: true),
+      defaultTextFormField(controller: titleController, label: 'Title',isNote: true,validator: (s){}),
      
        SizedBox(height:ScreenSize.height*.04,),
      
-       defaultTextFormField(controller: dateController, label: 'Date',isNote: true),
+       defaultTextFormField(controller: dateController, label: 'Date',isNote: true,validator: (s){}),
      
          SizedBox(height:ScreenSize.height*.04,),
      
-     defaultTextFormField(controller: noteController, label: 'Note',isNote: true,maxNumberOfLines: 5),
+     defaultTextFormField(controller: noteController, label: 'Note',isNote: true,maxNumberOfLines: 5,validator: (s){}),
      
    
      
