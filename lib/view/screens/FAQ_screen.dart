@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_html_css/simple_html_css.dart';
 //import 'package:flutter_html/flutter_html.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 import 'package:workshop_app/model/size_model.dart';
@@ -35,7 +36,25 @@ class FAQ extends StatelessWidget {
         child: BlocConsumer<FAQCubit, FAQStates>(
           listener: (context, state) {},
           builder: (context, state) {
+
             FAQCubit cubit = FAQCubit.get(context);
+            final TextSpan questionSpan = HTML.toTextSpan(
+      context,
+      cubit.question,
+      
+      
+      defaultTextStyle: TextStyle(color: Colors.white,fontSize: 15),
+     
+    );
+     
+            final TextSpan answerSpan = HTML.toTextSpan(
+      context,
+      cubit.answer,
+      
+      
+      defaultTextStyle: TextStyle(color: Colors.white,fontSize: 18),
+     
+    );
             return Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -47,12 +66,10 @@ class FAQ extends StatelessWidget {
                           topRight: Radius.circular(15)),
                       color: defaultColor,
                     ),
+                   
                     child: ListTile(
-                    //  title: Html(data: cubit.question),
-                      // title: Text(
-                      //   'Q1: How many countries Orange Digital center is in ?',
-                      //   style: TextStyle(color: Colors.white),
-                      // ),
+                      title:RichText(text: questionSpan),
+                   
                       trailing: IconButton(
                         icon: cubit.isShown
                             ? Icon(Icons.keyboard_arrow_up,size: 25,)
@@ -76,12 +93,10 @@ class FAQ extends StatelessWidget {
                             ? BorderRadius.circular(0): BorderRadius.vertical(bottom: Radius.circular(20))
                             ),
                          
-                    // child: Align(
+                    child: Align(
                       
-                        // alignment: Alignment.bottomCenter,
-                      //   child: Html(data: cubit.answer,
-                      //  style:{ 'color':Style()},
-                      //   ),),
+                        alignment: Alignment.bottomCenter,
+                        child:RichText(text: answerSpan)),
                   )
                 ],
               ),

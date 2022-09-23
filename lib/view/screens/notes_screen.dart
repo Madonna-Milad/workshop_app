@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:workshop_app/core/resourses/colors.dart';
 import 'package:workshop_app/model/size_model.dart';
 import 'package:workshop_app/view/componants/core/defaultButton.dart';
@@ -9,11 +10,17 @@ import 'package:workshop_app/view/componants/core/navigation.dart';
 import 'package:workshop_app/view/screens/home_screen.dart';
 import 'package:workshop_app/view/screens/layout_screen.dart';
 import 'package:workshop_app/view/screens/new_note.dart';
+import 'package:workshop_app/view_model/news/news_cubit.dart';
+import 'package:workshop_app/view_model/notes/notes_cubit.dart';
+import 'package:workshop_app/view_model/notes/notes_states.dart';
+
+import '../componants/notes/notes_card.dart';
 
 class NotesScreen extends StatelessWidget {
-  NotesScreen({Key? key}) : super(key: key);
-
-  bool availableData = false;
+  // NotesScreen({Key? key}) : super(key: key);
+  List<Map> addedNotes = [];
+  NotesScreen(this.addedNotes);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +37,36 @@ class NotesScreen extends StatelessWidget {
         ),
         title: Text('Notes'),
       ),
-      body: availableData
-          ? Center(
-              child: Text('There\'s No Data To Show',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w600,
-                  )),
-            )
-          : Padding(
-            padding: const EdgeInsets.all(15.0),
-            child:  ListView.separated(itemBuilder: (context, index) => buildNoteCard('Note title','2022-8-15','I need to study for exams'),
-               separatorBuilder: (context, index) => SizedBox(height: ScreenSize.height*.02,),
-                itemCount: 3)
-            ),
+      body:
+      
+         BlocConsumer<NotesCubit, NotesStates>(
+            listener: (context, state) {},
+            builder: (context, state) {
+              NotesCubit noteCubit = NotesCubit.get(context);
           
+             return noteCubit.notes.length == 0
+                  ? Center(
+                      child: Text('There\'s No Data To Show',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          )),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: ListView.separated(
+                          itemBuilder: (context, index) => buildNoteCard(
+                              noteCubit.notes[index]['title'],
+                              noteCubit.notes[index]['date'],
+                              noteCubit.notes[index]['description']),
+                          separatorBuilder: (context, index) => SizedBox(
+                                height: ScreenSize.height * .02,
+                              ),
+                          itemCount:noteCubit.notes.length
+                          ));
+            }
+        ),
+        
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           navigateTo(context, NewNoteScreen());
@@ -53,28 +75,4 @@ class NotesScreen extends StatelessWidget {
       ),
     );
   }
-}
-Widget buildNoteCard(String title,String date,String details){
-  return Container(
-              height: ScreenSize.height*.2,
-              width: double.infinity,
-              child: Card(
-                elevation:5,
-                child:Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(title,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),),
-                      SizedBox(height: ScreenSize.height*.02,),
-                      Text(date,style: TextStyle(color: defaultColor),),
-                       SizedBox(height: ScreenSize.height*.02,),
-
-                      Text(details,style: TextStyle(fontSize: 20)),
-
-                    ],
-                  ),
-                )
-              ));
 }

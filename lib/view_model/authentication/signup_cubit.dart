@@ -21,7 +21,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
   var confirmationPasswordController = TextEditingController();
 
   static SignUpCubit get(context) => BlocProvider.of(context);
-  List<String> genderList = ['Male', 'Female'];
+  List<String> genderList = ['Female', 'Male'];
   List<String> universityList = ['AUC', 'Cairo', 'ELU', 'GUC', 'Helwan', 'HTI'];
   List<String> gradeList = [
     'Grade 1',
@@ -63,7 +63,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
       'universityId': 1,
       'gradeId': 4,
     }).then((value) {
-      print(value.data);
+     
       emit(SignupSuccessfulState());
     }).catchError((error) {
       print(error.toString());
@@ -75,7 +75,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
     emit(UniversityloadingState());
 
     await DioHelper.getData(url: universityEndPoint).then((value) {
-      //print(value.data);
+     
       universityModel=UniversityModel.fromJson(value.data);
       emit(UniversitySuccessfulState());
     }).catchError((error) {
@@ -87,7 +87,7 @@ class SignUpCubit extends Cubit<SignUpStates> {
     emit(GradeloadingState());
 
     await DioHelper.getData(url: universityEndPoint).then((value) {
-     // print(value.data);
+     
      gradeModel=GradeModel.fromJson(value.data);
       emit(GradeSuccessfulState());
     }).catchError((error) {

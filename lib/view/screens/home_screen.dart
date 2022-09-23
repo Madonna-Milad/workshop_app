@@ -28,7 +28,7 @@ List <VoidCallback> destinations=[
   (){ navigateTo(context, MidtermsScreen());},
   (){ navigateTo(context,FinalsScreen());},
   (){navigateTo(context,EventsScreen());},
-  (){navigateTo(context,NotesScreen());},
+  (){navigateTo(context,NotesScreen([]));},
 ];
 
     return Scaffold(
